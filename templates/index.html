@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <title>English → French Translator</title>
+    <script>
+        function checkWordLimit() {
+            let textarea = document.getElementById("english_text");
+            let words = textarea.value.split(/\s+/).filter(w => w.length > 0);
+            if (words.length > 15) {
+                textarea.value = words.slice(0, 15).join(" ");
+            }
+            document.getElementById("word_count").innerText = words.length + " / 15 words";
+        }
+    </script>
+
+</head>
+
+<body>
+    <h1>English → French Translator</h1>
+    <form action="/translate" method="POST">
+        <textarea name="english_text" rows="4" cols="50" 
+                placeholder="Write a simple short sentence (max 15 words)" 
+                id="english_text" 
+                oninput="checkWordLimit()"></textarea>
+        <p id="word_count">0 / 15 words</p>
+        <button type="submit">Translate</button>
+    </form>
+    
+    {% if translated_text %}
+    <div class="translation-box">
+        <h2>Original English:</h2>
+        <p>{{ english_text }}</p>
+
+        <h2>French Translation:</h2>
+        <p>{{ translated_text }}</p>
+    </div>
+    {% endif %}
+
+</body>
+</html>
