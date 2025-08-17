@@ -1,6 +1,11 @@
 from flask import Flask, render_template, request
 from model.translator import predict_translation
+import nltk
 
+try:
+    nltk.data.find("tokenizers/punkt")
+except LookupError:
+    nltk.download("punkt")
 app = Flask(__name__)
 
 @app.route("/")
