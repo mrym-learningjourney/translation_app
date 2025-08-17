@@ -17,16 +17,17 @@
 </head>
 
 <body>
-    <h1>English → French Translator</h1>
-    <form action="/translate" method="POST">
-        <textarea name="english_text" rows="4" cols="50" 
-                placeholder="Write a simple short sentence (max 15 words)" 
-                id="english_text" 
+    <h1 class="app-title">English → French Translator</h1>
+    <form method="POST" action="/translate" class="translation-form">
+        <textarea name="english_text" rows="4" cols="50"
+                placeholder="Write a simple short sentence (max 15 words)"
+                id="english_text"
                 oninput="checkWordLimit()"></textarea>
         <p id="word_count">0 / 15 words</p>
         <button type="submit">Translate</button>
     </form>
-    
+
+
     {% if translated_text %}
     <div class="translation-box">
         <h2>Original English:</h2>

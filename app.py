@@ -14,3 +14,6 @@ def translate():
     french_text = predict_translation(english_text)
 
     return render_template("index.html", english_text=english_text, translated_text = french_text)
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5000, debug=False)

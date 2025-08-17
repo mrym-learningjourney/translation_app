@@ -5,30 +5,6 @@ body {
     background-color: #f7f7f7;
 }
 
-textarea {
-    width: 60%;
-    padding: 10px;
-    font-size: 16px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    resize: none;
-}
-
-button {
-    margin-top: 15px;
-    padding: 10px 20px;
-    font-size: 16px;
-    border-radius: 8px;
-    border: none;
-    background-color: #4CAF50;
-    color: white;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #45a049;
-}
-
 p#word_count {
     font-size: 14px;
     color: #555;
@@ -39,27 +15,112 @@ h1 {
     color: #333;
 }
 
-.translation-box {
+.app-title {
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 36px;
+    color: #4CAF50;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+.translation-form {
     width: 60%;
     margin: 20px auto;
     padding: 20px;
+    border-radius: 15px;
+    background-color: #f9f9f9;
+    border: 1px solid #4CAF50;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+}
+
+.translation-form textarea {
+    width: 100%;
+    padding: 12px;
     border-radius: 10px;
-    background-color: #ffffff;
-    border: 2px solid #4CAF50;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border: 1px solid #ccc;
+    font-size: 16px;
+    resize: none;
+    box-sizing: border-box;
+}
+
+.translation-form button {
+    margin-top: 15px;
+    padding: 12px 25px;
+    border-radius: 10px;
+    border: none;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.translation-form button:hover {
+    background-color: #45a049;
+    transform: translateY(-2px);
+}
+
+.translation-box {
+    width: 60%;
+    margin: 20px auto;
+    padding: 25px;
+    border-radius: 15px;
+    background: linear-gradient(145deg, #ffffff, #e6f2ff);
+    border: 1px solid #4CAF50;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    transition: transform 0.2s;
+}
+
+.translation-box:hover {
+    transform: translateY(-5px);
 }
 
 .translation-box h2 {
     margin-top: 0;
     color: #4CAF50;
+    font-size: 20px;
 }
 
 .translation-box p {
     font-size: 18px;
     color: #333;
+    margin: 10px 0 20px 0;
     word-wrap: break-word;
 }
 
 .translation-box p:first-of-type {
     color: #555; /* original English text */
+}
+
+/* Responsive adjustments for smaller screens */
+@media screen and (max-width: 768px) {
+    .translation-form,
+    .translation-box {
+        width: 90%;
+        padding: 15px;
+    }
+
+    .translation-box h2 {
+        font-size: 18px;
+    }
+
+    .translation-box p,
+    .translation-form textarea,
+    .translation-form button {
+        font-size: 16px;
+    }
+
+    .translation-form button {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .app-title {
+        font-size: 28px;
+        margin-top: 20px;
+        margin-bottom: 15px;
+    }
 }
