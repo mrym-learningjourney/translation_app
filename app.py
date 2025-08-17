@@ -2,10 +2,12 @@ from flask import Flask, render_template, request
 from model.translator import predict_translation
 import nltk
 
-try:
-    nltk.data.find("tokenizers/punkt")
-except LookupError:
-    nltk.download("punkt")
+for resource in ["punkt", "punkt_tab"]:
+    try:
+        nltk.data.find(f"tokenizers/{resource}")
+    except LookupError:
+        nltk.download(resource)
+
 app = Flask(__name__)
 
 @app.route("/")
